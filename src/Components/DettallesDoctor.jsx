@@ -11,7 +11,7 @@ export default class DetallesDoctor extends Component {
     return (
       <>
         <form onSubmit={this.sendFormInfo}>
-            <button type='submit'>Detalles...</button>
+            <button className='btn btn-success' type='submit'>Detalles...</button>
         </form>
       </>
     )

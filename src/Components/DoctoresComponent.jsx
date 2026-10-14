@@ -1,9 +1,12 @@
-import axios from 'axios';
 import React, { Component } from 'react'
-import { Global } from '../Global';
 import DetallesDoctor from './DettallesDoctor';
+import ServiceHosptitales from '../services/ServiceHospitales';
+import { Global } from '../Global';
+import axios from 'axios';
 
 export default class DoctoresComponent extends Component {
+
+  doctoresService = new ServiceHosptitales();
 
   counter = 0;
 
@@ -13,11 +16,11 @@ export default class DoctoresComponent extends Component {
   }
 
   loadDoctores = () => {
-    axios.get(Global.apiDoctores + "/DoctoresHospital/" + this.props.idHospital).then((response) => {
+    this.doctoresService.getDoctoresByIdHospital(this.props.idHospital).then((doctores) => {
       this.setState({
-        doctores: response.data
-      })
-    });
+        doctores: doctores 
+      });
+    })
   }
 
   getDetallesDoctorById = (id) => {
@@ -33,13 +36,17 @@ export default class DoctoresComponent extends Component {
   }
 
   componentDidUpdate = (oldProps) => {
-    if(oldProps.idHospital !== this.props.idHospital)
+    if(oldProps.idHospital !== this.props.idHospital){
       this.loadDoctores();
+      this.setState({
+        doctorDettales: null
+      })
+    }
   }
 
   render() {
     return (
-      <div>
+      <div className='container'>
         <h1>Doctores del hospital {this.props.idHospital}</h1>
         {
           this.state.doctores.length > 0 &&
@@ -47,9 +54,9 @@ export default class DoctoresComponent extends Component {
             <thead>
               <tr>
                 {
-                 Object.keys(this.state.doctores[0]).map((clave) => {
+                Object.keys(this.state.doctores[0]).map((clave) => {
                     return(<td key={this.counter++}>{clave}</td>)
-                 })
+                })
                 }
                 <td>Detalles</td>
               </tr>

@@ -11,3 +11,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.grid-col4{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.gap1{
+  gap: 1rem;
+  row-gap: 1rem;
+}
+
+.gap2{
+  gap: 2rem;
+}
+
+.flex{
+  display: flex;
+}
+
+.justify-content-center{
+  justify-content: center;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+.w-fitContent{
+  width: fit-content;
+}
+
+.flex-direction-column{
+  flex-direction: column; 
+}

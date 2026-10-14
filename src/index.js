@@ -7,8 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle'
 import $ from 'jquery'
 import Popper from 'popper.js'
-import MenuComponent from './Components/MenuComponent';
-import Router from './Components/Router';
+import Router from './components/Router';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -4,6 +4,9 @@ import HomeComponent from './HomeComponent'
 import NotFound404 from './NotFound404';
 import MenuComponent from './MenuComponent';
 import DoctoresComponent from './DoctoresComponent';
+import CreateHospitales from './CreateHospital';
+import HospitalesComponent from './HospitalesComponent';
+import EjemploServiceComponent from './EjemploServiceComponent';
 
 export default class Router extends Component {
   render() {
@@ -25,6 +28,9 @@ export default class Router extends Component {
         <MenuComponent/>
         <Routes>
             <Route path='/' element={<HomeComponent/>} />
+            <Route path='/Createhospital' element={<CreateHospitales/>} />
+            <Route path='/Hospitales' element={<HospitalesComponent/>} />
+            <Route path='/EjemploServicio' element={<EjemploServiceComponent/>} />
             <Route path='/Doctores/:idHospital' element={<RouteParam element={<DoctoresComponent/>}/>}/>
             
 
